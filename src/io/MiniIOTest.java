@@ -74,4 +74,12 @@ public class MiniIOTest {
         System.out.printf("File size is: " + Files.size(destinationFile));
         assertThat(Files.size(destinationFile)).isGreaterThan(0);
     }
+
+    @Test
+    public void pathResovle() {
+        Path p1 =  Paths.get("/home/java/");
+        Path p2 = Paths.get("java/models/Model.pdf");
+        Path path = p1.resolve(p2);
+        System.out.printf(String.valueOf(path));
+    }
 }
