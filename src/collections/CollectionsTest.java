@@ -92,4 +92,43 @@ public class CollectionsTest {
         time.add(4);
         assertThat(subset).as("Subset should get the entry from original").contains(4);
     }
+    
+    @Test
+    public void usePriorityQueue() {
+        int[] ia = {1,5,3,7,6,9,8};
+        PriorityQueue<Integer> pq1 = new PriorityQueue<>();
+        PriorityQueue<Integer> pq2 = new PriorityQueue<>(10, new PQ.PQsort());
+        for (int x: ia) {
+            pq1.offer(x);
+        }
+        for (int ignored : ia) {
+            System.out.println(pq1.poll());
+        }
+        for (int x: ia) {
+            pq2.offer(x);
+        }
+        System.out.println("Reverse order");
+        for (int ignored : ia) {
+            System.out.println(pq2.poll());
+        }
+    }
+
+    @Test
+    public void useArrayDeque() {
+        List<Integer> nums = Arrays.asList(10, 9, 8, 7, 6, 5);
+        ArrayDeque<Integer> a = new ArrayDeque<>(2);
+        ArrayDeque<Integer> b = new ArrayDeque<>(2);
+        ArrayDeque<Integer> c = new ArrayDeque<>(2);
+        ArrayDeque<Integer> d = new ArrayDeque<>(2);
+        ArrayDeque<Integer> e = new ArrayDeque<>(2);
+        for (int x: nums) {
+            a.offer(x);
+            b.offerFirst(x);
+            c.push(x);
+            d.add(x);
+            e.addFirst(x);
+        }
+        System.out.printf("");
+    }
+
 }
