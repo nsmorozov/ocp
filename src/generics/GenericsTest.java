@@ -2,6 +2,8 @@ package generics;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class GenericsTest {
 
     @Test
@@ -22,6 +24,20 @@ public class GenericsTest {
         Integer[] numbers = {23, 4, 5, 2, 13, 456, 4};
         printer.print(people);
         printer.print(numbers);
+    }
+
+    @Test
+    public void testGenericWildCards() {
+        List<Car> cars = List.of(new Car(), new Car());
+        List<Vehicle> vehicles = List.of(new Vehicle(), new Vehicle());
+        printColors(cars);
+        printColors(vehicles);
+    }
+
+    private void printColors(List<? super Car> items) {
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println(items.get(i));
+        }
     }
 
 }

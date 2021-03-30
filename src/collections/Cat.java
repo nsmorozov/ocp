@@ -1,9 +1,8 @@
 package collections;
 
-public class Cat {
+public class Cat extends Animal {
 
     public Cat() {
     }
 
-    private int size;
 }
